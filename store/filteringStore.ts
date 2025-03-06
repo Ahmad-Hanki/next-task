@@ -1,12 +1,12 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 //using zustand only for showing purposes .
 
-const useFilteringStore = create<FilteringStoreType>((set) => ({
+const useFilteringStore = create<FilteringStoreType>(set => ({
   status: null,
   gender: null,
-  setStatus: (status) => set({ status }),
-  setGender: (gender) => set({ gender }),
+  setStatus: status => set({ status }),
+  setGender: gender => set({ gender }),
   resetFilters: () => set({ status: null, gender: null }),
 }));
 

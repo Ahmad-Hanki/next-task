@@ -1,10 +1,10 @@
-type TypeProp = "gender" | "status";
+type TypeProp = 'gender' | 'status';
 
 const filteringData = (type: TypeProp) => {
-  if (type == "gender") {
-    return ["male", "female", "unknown"];
+  if (type == 'gender') {
+    return ['male', 'female', 'unknown'];
   } else {
-    return ["alive", "dead", "unknown"];
+    return ['alive', 'dead', 'unknown'];
   }
 };
 

@@ -17,11 +17,11 @@ type LocationType = {
   name: string;
   url: string;
 };
-type StatusType = "unknown" | "Alive" | "Dead";
-type GenderType = "unknown" | "Male" | "Female";
+type StatusType = 'unknown' | 'Alive' | 'Dead';
+type GenderType = 'unknown' | 'Male' | 'Female';
 
 interface FilteringDropDownMenuProps {
-  type: "status" | "gender";
+  type: 'status' | 'gender';
 }
 
 type CharacterType = {

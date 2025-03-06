@@ -1,15 +1,15 @@
-"use server";
-import axios from "axios";
+'use server';
+import axios from 'axios';
 
 const getRickAndMortyData = async (
   gender: GenderType | string,
   status: StatusType | string,
-  page: string,
+  page: string
   // getting those filters from the searchParams, from the home page
 ) => {
-  const query = `?${gender ? `gender=${gender}&` : ""}${
-    status ? `status=${status}&` : ""
-  }${page ? `page=${page}&` : ""}`.slice(0, -1);
+  const query = `?${gender ? `gender=${gender}&` : ''}${
+    status ? `status=${status}&` : ''
+  }${page ? `page=${page}&` : ''}`.slice(0, -1);
 
   const endpoint = `https://rickandmortyapi.com/api/character${query}`;
 
@@ -23,7 +23,7 @@ const getRickAndMortyData = async (
       info: data?.info as InfoType,
     };
   } catch (err) {
-    console.log(err, "error");
+    console.log(err, 'error');
   }
 };
 

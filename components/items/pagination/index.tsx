@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   Pagination,
   PaginationContent,
@@ -7,12 +7,12 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
-import { useQueryState } from "nuqs";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/pagination';
+import { useQueryState } from 'nuqs';
+import { cn } from '@/lib/utils';
 
 const PaginationFiltering = ({ info }: { info: InfoType }) => {
-  const [page, setPage] = useQueryState("page", { defaultValue: "1" });
+  const [page, setPage] = useQueryState('page', { defaultValue: '1' });
   const currentPage = Number(page);
 
   const handlePageChange = (newPage: number) => {
@@ -30,7 +30,7 @@ const PaginationFiltering = ({ info }: { info: InfoType }) => {
             onClick={
               info.prev ? () => handlePageChange(currentPage - 1) : undefined
             }
-            className={cn(!info.prev && "opacity-50 cursor-not-allowed")}
+            className={cn(!info.prev && 'cursor-not-allowed opacity-50')}
           />
         </PaginationItem>
 
@@ -95,7 +95,7 @@ const PaginationFiltering = ({ info }: { info: InfoType }) => {
             onClick={
               info.next ? () => handlePageChange(currentPage + 1) : undefined
             }
-            className={cn(!info.next && "opacity-50 cursor-not-allowed")}
+            className={cn(!info.next && 'cursor-not-allowed opacity-50')}
           />
         </PaginationItem>
       </PaginationContent>

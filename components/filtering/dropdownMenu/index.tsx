@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import {
   Select,
   SelectContent,
@@ -7,9 +7,9 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import filteringData from "@/lib/filteringData";
-import { useQueryState } from "nuqs";
+} from '@/components/ui/select';
+import filteringData from '@/lib/filteringData';
+import { useQueryState } from 'nuqs';
 // import useFilteringStore from "@/store/filteringStore";
 
 const FilteringDropDownMenu = ({ type }: FilteringDropDownMenuProps) => {
@@ -17,13 +17,13 @@ const FilteringDropDownMenu = ({ type }: FilteringDropDownMenuProps) => {
   // just showing the way if zustand usage:
 
   const [filteredType, setFilteredType] = useQueryState(type); // using nuqs
-  const [page, setPage] = useQueryState("page"); // using nuqs for page
+  const [page, setPage] = useQueryState('page'); // using nuqs for page
 
   const filters = filteringData(type); // getting the right data based on the type
 
   const handleSelectChange = (value: string) => {
     if (page) {
-      setPage("");
+      setPage('');
     }
 
     // if (type == "status") {
@@ -46,14 +46,14 @@ const FilteringDropDownMenu = ({ type }: FilteringDropDownMenuProps) => {
         <SelectTrigger className="w-[180px]">
           <SelectValue
             placeholder={
-              type == "status" ? "Select a Status" : "Select a Gender"
+              type == 'status' ? 'Select a Status' : 'Select a Gender'
             }
           />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             <SelectLabel className="capitalize">{type}</SelectLabel>
-            {filters.map((data) => (
+            {filters.map(data => (
               <SelectItem className="capitalize" key={data} value={data}>
                 {data}
               </SelectItem>
