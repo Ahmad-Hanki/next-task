@@ -13,7 +13,10 @@ import { cn } from '@/lib/utils';
 
 const PaginationFiltering = ({ info }: { info: InfoType }) => {
   const [page, setPage] = useQueryState('page', { defaultValue: '1' });
-  const currentPage = Number(page);
+
+  if (info.count == 0) return null;
+
+  const currentPage = Math.max(Number(page), 1);
 
   const handlePageChange = (newPage: number) => {
     if (newPage > 0 && newPage <= info.pages) {

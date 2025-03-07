@@ -24,6 +24,10 @@ const getRickAndMortyData = async (
     };
   } catch (err) {
     console.log(err, 'error');
+    return {
+      characters: [],
+      info: { count: 0, pages: 0, next: null, prev: null } as InfoType,
+    };
   }
 };
 

@@ -17,32 +17,28 @@ const FilteringDropDownMenu = ({ type }: FilteringDropDownMenuProps) => {
   // just showing the way if zustand usage:
 
   const [filteredType, setFilteredType] = useQueryState(type); // using nuqs
-  const [page, setPage] = useQueryState('page'); // using nuqs for page
 
   const filters = filteringData(type); // getting the right data based on the type
 
   const handleSelectChange = (value: string) => {
-    if (page) {
-      setPage('');
-    }
-
     // if (type == "status") {
+    // // zustand
     //   setStatus(value as StatusType);
     // } else {
     //   setGender(value as GenderType);
     // }
 
     // i don't need zustand for the filtering, just showing it.
-
-    setFilteredType(value, { shallow: false });
+    if (value === 'reset') {
+      setFilteredType(null, { shallow: false }); // Reset the state
+    } else {
+      setFilteredType(value, { shallow: false });
+    }
   };
 
   return (
     <div>
-      <Select
-        onValueChange={handleSelectChange}
-        value={filteredType ?? undefined}
-      >
+      <Select onValueChange={handleSelectChange} value={filteredType ?? ''}>
         <SelectTrigger className="w-[180px]">
           <SelectValue
             placeholder={
@@ -53,6 +49,11 @@ const FilteringDropDownMenu = ({ type }: FilteringDropDownMenuProps) => {
         <SelectContent>
           <SelectGroup>
             <SelectLabel className="capitalize">{type}</SelectLabel>
+            {filteredType && (
+              <SelectItem key="reset" value="reset" className="text-red-500">
+                Clear Selection
+              </SelectItem>
+            )}
             {filters.map(data => (
               <SelectItem className="capitalize" key={data} value={data}>
                 {data}

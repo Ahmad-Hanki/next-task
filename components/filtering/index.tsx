@@ -1,6 +1,5 @@
 import React from 'react';
 import FilteringDropDownMenu from './dropdownMenu';
-import ResetFiltersButton from './resrtFiltersButton';
 
 const Filtering = () => {
   return (
@@ -9,9 +8,6 @@ const Filtering = () => {
         <FilteringDropDownMenu type="status" />
         <FilteringDropDownMenu type="gender" />
       </div>
-
-      {/* reset */}
-      <ResetFiltersButton />
     </div>
   );
 };

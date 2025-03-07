@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import getRickAndMortyData from '@/actions/getRickAndMortyData';
 import SkeletonItem from '../skeleton';
 import PaginationFiltering from '../pagination';
+import ResetFiltersButton from '@/components/filtering/resrtFiltersButton';
 
 const CardItem = ({ gender, page, status }: CardItemProps) => {
   const { data, isFetching } = useQuery({
@@ -22,6 +23,15 @@ const CardItem = ({ gender, page, status }: CardItemProps) => {
           </Card>
         ))}
       </div>
+
+      {/* reset all filters if no data */}
+
+      {data?.characters?.length === 0 && (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <p>No data Found</p>
+          <ResetFiltersButton />
+        </div>
+      )}
 
       {/* pagination */}
 
